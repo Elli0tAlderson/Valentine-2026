@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <base href="/" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Enipp Valentine</title>
+   <script>
+      !function (t, e) { var o, n, p, r; e.__SV || (window.posthog && window.posthog.__loaded) || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init rs ls bi ns us ts ss capture calculateEventProperties vs register register_once register_for_session unregister unregister_for_session gs getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fs ds createPersonProfile ps Qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing hs debug O cs getPageViewId captureTraceFeedback captureTraceMetric Kr".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+      posthog.init('phc_YnDjzfeJA8MCJgLYMeTYsvSjVCAzMwiIqf8eWdw3jIC', {
+         api_host: 'https://us.i.posthog.com',
+         defaults: '2025-11-30',
+         person_profiles: 'identified_only',
+      })
+   </script>
+   <script src="./libs/mindar/mindar-image-three.prod.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+   <script src="./main.js" type="module"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+   <style>
+      html,
+      body {
+         position: relative;
+         margin: 0;
+         width: 100%;
+         height: 100%;
+         overflow: hidden;
+         font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      }
+
+      canvas {
+         width: 100% !important;
+         height: 100dvh !important;
+         display: block;
+      }
+
+      #start-ar-overlay {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.85);
+         color: #fff;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 100;
+      }
+
+      #start-ar-overlay>div {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         text-align: center;
+      }
+
+      #start-ar-button {
+         background: linear-gradient(to right, #e91e63, #9c27b0);
+         color: white;
+         border: none;
+         padding: 15px 40px;
+         border-radius: 50px;
+         cursor: pointer;
+         font-weight: bold;
+      }
+
+      #ui-panel {
+         position: absolute;
+         bottom: 25px;
+         right: 20px;
+         width: 260px;
+         background: rgba(0, 0, 0, 0.7);
+         backdrop-filter: blur(15px);
+         -webkit-backdrop-filter: blur(15px);
+         padding: 20px;
+         border-radius: 20px;
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         z-index: 30;
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+         color: white;
+      }
+
+      #mobile-edit-toggle {
+         position: absolute;
+         bottom: 20px;
+         right: 20px;
+         z-index: 45;
+         background: linear-gradient(to right, #e91e63, #9c27b0);
+         color: white;
+         border: none;
+         width: 55px;
+         height: 55px;
+         border-radius: 50%;
+         font-size: 20px;
+         cursor: pointer;
+         display: none;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      #panel-close-icon {
+         display: none !important;
+      }
+
+      @media (max-width: 768px) {
+
+         #ui-panel {
+            left: 50%;
+            right: auto;
+            bottom: 14%;
+            transform: translateX(-50%) translateY(140%);
+            transition: transform 0.35s ease;
+            width: 90%;
+            max-width: 320px;
+            overflow: visible !important;
+         }
+
+         #ui-panel.open {
+            transform: translateX(-50%) translateY(0);
+         }
+
+         #panel-close-icon {
+            display: block !important;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #dda0dd;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 50;
+         }
+
+         #mobile-edit-toggle {
+            display: block;
+         }
+      }
+
+      #ui-panel label {
+         display: block;
+         font-size: 16px;
+         font-weight: 600;
+         letter-spacing: 1.2px;
+         color: #dda0dd;
+         margin-bottom: 8px;
+      }
+
+      #text-input {
+         background: rgba(255, 255, 255, 0.1);
+         border: 1px solid rgba(255, 255, 255, 0.2);
+         border-radius: 10px;
+         color: white;
+         padding: 10px;
+         font-size: 14px;
+         width: 100%;
+         height: 80px;
+         resize: none;
+         box-sizing: border-box;
+      }
+
+      .color-row {
+         display: flex;
+         align-items: center;
+         gap: 15px;
+      }
+
+      .dropper-wrapper {
+         position: relative;
+         width: 40px;
+         height: 40px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         cursor: pointer;
+      }
+
+      .dropper-wrapper i {
+         color: #dda0dd;
+         font-size: 18px;
+         pointer-events: none;
+      }
+
+      #color-picker {
+         position: absolute;
+         opacity: 0;
+         width: 100%;
+         height: 100%;
+         cursor: pointer;
+      }
+
+      #color-indicator {
+         width: 45px;
+         height: 25px;
+         border-radius: 5px;
+         border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      #text-size {
+         -webkit-appearance: none;
+         width: 100%;
+         height: 6px;
+         background: linear-gradient(to right, #dda0dd 0%, #dda0dd var(--value, 20%), rgba(221, 160, 221, 0.2) var(--value, 20%), rgba(221, 160, 221, 0.2) 100%);
+         border-radius: 5px;
+         outline: none;
+      }
+
+      #text-size::-webkit-slider-thumb {
+         -webkit-appearance: none;
+         width: 18px;
+         height: 18px;
+         background: #dda0dd !important;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 0 8px rgba(221, 160, 221, 0.6);
+         border: none;
+      }
+
+      #image-preview-container {
+         margin-bottom: 10px;
+         width: 100%;
+         height: 110px;
+         display: none;
+         justify-content: center;
+         align-items: center;
+         background: none;
+         border: none;
+      }
+
+      #image-preview-container img {
+         height: 90%;
+         width: auto;
+         border-radius: 50%;
+      }
+
+      .action-btn {
+         background: #dda0dd;
+         color: #000;
+         font-weight: 700;
+         border: none;
+         padding: 12px;
+         border-radius: 10px;
+         cursor: pointer;
+         width: 100%;
+         font-size: 13px;
+         transition: transform 0.2s;
+      }
+
+      .action-btn:active {
+         transform: scale(0.95);
+      }
+
+      #logo {
+         position: absolute;
+         bottom: 25px;
+         left: 20px;
+         z-index: 20;
+      }
+
+      #logo img {
+         width: 100px;
+         height: auto;
+         opacity: 0.8;
+      }
+
+      #cropper-modal {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.7);
+         display: none;
+         justify-content: center;
+         align-items: center;
+         z-index: 110;
+      }
+
+      #cropper-box {
+         background: rgba(0, 0, 0, 0.65);
+         backdrop-filter: blur(18px);
+         -webkit-backdrop-filter: blur(18px);
+         padding: 20px;
+         border-radius: 20px;
+         width: 85%;
+         max-width: 350px;
+         text-align: center;
+         border: 1px solid #dda0ddcc;
+      }
+
+      #cropper-container {
+         max-height: 250px;
+         margin-bottom: 15px;
+         overflow: hidden;
+         border-radius: 12px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border: 1px solid #dda0ddcc;
+      }
+
+      .cropper-bg,
+      .cropper-modal,
+      .cropper-container {
+         background: rgba(55, 55, 55, 0.5) !important;
+      }
+
+      .cropper-view-box,
+      .cropper-face {
+         border-radius: 50% !important;
+      }
+
+      .cropper-view-box {
+         outline: 2px solid #dda0dd !important;
+         outline-offset: -2px;
+      }
+
+      #cropper-actions {
+         display: flex;
+         gap: 12px;
+      }
+
+      #cropper-actions button {
+         flex: 1;
+      }
+
+      .cancel-btn {
+         background: rgba(255, 255, 255, 0.2) !important;
+         color: white !important;
+      }
+   </style>
+</head>
+
+<body>
+
+   <div id="start-ar-overlay">
+      <div>
+         <h1 style="font-size: 2.5em; margin-bottom: 20px;">Valentine AR</h1>
+         <button id="start-ar-button">Start Experience</button>
+      </div>
+   </div>
+
+   <div id="ui-panel">
+      <button id="panel-close-icon"
+         style="display: none; position: absolute; top: 15px; right: 15px; background: none; border: none; color: #dda0dd; font-size: 22px; cursor: pointer; z-index: 50;">
+         <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="section">
+         <label>Message</label>
+         <textarea id="text-input" placeholder="Enter message..." maxlength="150"></textarea>
+      </div>
+
+      <div class="section">
+         <label>Text Color</label>
+         <div class="color-row">
+            <div class="dropper-wrapper">
+               <i class="fa-solid fa-eye-dropper"></i>
+               <input type="color" id="color-picker" value="#FF0090">
+            </div>
+            <div id="color-indicator" style="background-color: #FF0090;"></div>
+         </div>
+
+         <label style="margin-top: 15px;">Text Size</label>
+         <input type="range" id="text-size" min="0.01" max="1.0" step="0.01" value="0.2">
+      </div>
+
+      <div class="section">
+         <label>AR Image</label>
+         <input type="file" id="image-upload" accept="image/*" style="display:none">
+         <div id="image-preview-container">
+            <img id="preview-img" src="" alt="preview">
+         </div>
+         <button id="image-btn" class="action-btn" onclick="document.getElementById('image-upload').click()">Choose
+            Image</button>
+         <button id="apply-text-btn" class="action-btn" style="margin-top: 10px;">Apply Text</button>
+      </div>
+   </div>
+
+   <button id="mobile-edit-toggle"><i class="fa-solid fa-pen"></i></button>
+
+   <div id="logo">
+      <a href="https://enipp.com/" target="_blank">
+         <img src="./enipp.png" alt="Logo">
+      </a>
+   </div>
+
+   <div id="cropper-modal">
+      <div id="cropper-box">
+         <div id="cropper-container">
+            <img id="cropper-image" src="">
+         </div>
+
+         <div id="cropper-actions">
+            <button id="cancel-crop-button" class="action-btn cancel-btn">Cancel</button>
+            <button id="crop-button" class="action-btn">Upload</button>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      const textArea = document.getElementById('text-input');
+      const picker = document.getElementById('color-picker');
+      const indicator = document.getElementById('color-indicator');
+      const mobileToggleBtn = document.getElementById("mobile-edit-toggle");
+      const panelCloseIcon = document.getElementById("panel-close-icon");
+      const uiPanel = document.getElementById("ui-panel");
+
+      textArea.addEventListener('input', function () {
+         const words = this.value.trim().split(/\s+/);
+         if (words.length > 30) {
+            this.value = words.slice(0, 30).join(" ");
+         }
+      });
+
+      picker.addEventListener('input', () => {
+         indicator.style.backgroundColor = picker.value;
+      });
+
+      const togglePanel = () => {
+         uiPanel.classList.toggle("open");
+
+         mobileToggleBtn.innerHTML = uiPanel.classList.contains("open")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-pen"></i>';
+      };
+
+      mobileToggleBtn.addEventListener("click", togglePanel);
+      panelCloseIcon.addEventListener("click", togglePanel);
+   </script>
+</body>
+
+</html>

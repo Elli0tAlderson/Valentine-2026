@@ -1,0 +1,36 @@
+{
+  "valentine": {
+    "model": "./assets/models/air-baloon.glb",
+    "target": "./assets/mind-files/air-baloon.mind",
+    "defaultText": "My Heart is Yours",
+    "defaultColor": "#FF0090",
+    "defaultSize": 0.2,
+    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+  },
+  "CherryBlossomCat":{
+    "model": "./assets/models/cherry.glb",
+    "target": "./assets/mind-files/cherry-blossom.mind",
+    "defaultText": "You are Purr-fect!",
+    "defaultColor": "#FF69B4",
+    "defaultSize": 0.2,
+    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+
+  },
+  "SassyCat":{
+    "model": "./assets/models/sassy-cat.glb",
+    "target": "./assets/mind-files/sassy-cat.mind",
+    "defaultText": "Stay Sassy!",
+    "defaultColor": "#FF1493",
+    "defaultSize": 0.2,
+    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+
+  },
+  "FlyingHearts":{
+    "model": "./assets/models/Flying-hearts.glb",
+    "target": "./assets/mind-files/flying-hearts.mind",
+    "defaultText": "Love is in the Air!",
+    "defaultColor": "#FF4500",
+    "defaultSize": 0.2,
+    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+}
+}
