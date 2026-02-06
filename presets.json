@@ -5,7 +5,8 @@
     "defaultText": "My Heart is Yours",
     "defaultColor": "#FF0090",
     "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+    "envMap": "./assets/hdr/cape_hill_1k.hdr",
+    "displayImage": "./assets/graphics/air-baloon-2.png"
   },
   "CherryBlossomCat":{
     "model": "./assets/models/cherry.glb",
@@ -13,24 +14,27 @@
     "defaultText": "You are Purr-fect!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+    "envMap": "./assets/hdr/cape_hill_1k.hdr",
+    "displayImage": "./assets/graphics/Cherry-Blossoms.png"
 
   },
   "SassyCat":{
     "model": "./assets/models/sassy-cat.glb",
-    "target": "./assets/mind-files/sassy-cat.mind",
+    "target": "./assets/mind-files/normal-sassy-cat.mind",
     "defaultText": "Stay Sassy!",
     "defaultColor": "#FF1493",
     "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+    "envMap": "./assets/hdr/cape_hill_1k.hdr",
+    "displayImage": "./assets/graphics/normal-sassy-cat.png"
 
   },
   "FlyingHearts":{
-    "model": "./assets/models/Flying-hearts.glb",
+    "model": "./assets/models/purple-heart.glb",
     "target": "./assets/mind-files/flying-hearts.mind",
     "defaultText": "Love is in the Air!",
     "defaultColor": "#FF4500",
     "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr"
+    "envMap": "./assets/hdr/studio_kontrast_04_1k.hdr",
+    "displayImage": "./assets/graphics/Flying_Hearts_Front_Graphic.png"
 }
 }

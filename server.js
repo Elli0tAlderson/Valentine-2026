@@ -15,8 +15,21 @@ const app = express();
 const port = 3000;
 const cardDataDirPath = path.join(__dirname, 'card_data');
 
-function getCardDataFilePath(presetName) {
-    return path.join(cardDataDirPath, `${presetName}.json`);
+// Helper to normalize preset names from URL (kebab-case) to internal keys (PascalCase/camelCase)
+const normalizePresetName = (presetNameFromUrl) => {
+    // If it's 'valentine', it's already in the correct case for the JSON key and filename
+    if (presetNameFromUrl === 'valentine') {
+        return 'valentine';
+    }
+    // Convert kebab-case to PascalCase for other presets
+    return presetNameFromUrl.split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+};
+
+function getCardDataFilePath(presetNameFromUrl) {
+    const normalizedName = normalizePresetName(presetNameFromUrl);
+    return path.join(cardDataDirPath, `${normalizedName}.json`);
 }
 
 // Initialize card_data directory and preset JSON files
@@ -215,7 +228,8 @@ if (!fs.existsSync(uploadsDir)) {
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         // Ensure req.params.project is defined, defaulting to 'project1' if not
-        const project = req.params && req.params.project ? req.params.project : 'project1';
+        const projectFromUrl = req.params && req.params.project ? req.params.project : 'project1';
+        const project = normalizePresetName(projectFromUrl); // Normalize the project name
         const projectPath = path.join(uploadsDir, project);
         if (!fs.existsSync(projectPath)) fs.mkdirSync(projectPath, { recursive: true });
         cb(null, projectPath);
@@ -232,13 +246,14 @@ const upload = multer({ storage: storage });
 // --- Saves File + Updates JSON ---
 
 app.post('/api/upload/:project/:channelId', (req, res) => {
-    const { project, channelId } = req.params;
+    const { project: projectFromUrl, channelId } = req.params;
     const uploader = upload.single('image');
 
     uploader(req, res, function (err) {
         if (err) return res.status(500).send({ message: 'Upload error' });
         if (!req.file) return res.status(400).send({ message: 'No file' });
 
+        const project = normalizePresetName(projectFromUrl); // Normalize the project name
         const filePath = `/uploads/${project}/${req.file.filename}`;
 
         try {
@@ -263,7 +278,8 @@ app.post('/api/upload/:project/:channelId', (req, res) => {
 
 
 app.get('/api/image/:project/:channelId', (req, res) => {
-    const { project, channelId } = req.params;
+    const { project: projectFromUrl, channelId } = req.params;
+    const project = normalizePresetName(projectFromUrl);
     const projectPath = path.join(uploadsDir, project);
 
     if (fs.existsSync(projectPath)) {
@@ -278,7 +294,8 @@ app.delete('/api/image/:project/:channelId', (req, res) => {
     const { secret } = req.query;
     if (secret !== process.env.DELETE_SECRET_KEY) return res.status(401).send({ message: 'Unauthorized' });
 
-    const { project, channelId } = req.params;
+    const { project: projectFromUrl, channelId } = req.params;
+    const project = normalizePresetName(projectFromUrl);
     const projectPath = path.join(uploadsDir, project);
 
     if (fs.existsSync(projectPath)) {

@@ -5,13 +5,33 @@ const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const presets = await (await fetch("./presets.json")).json();
-  const pathParts = window.location.pathname.split('/').filter(p => p.length > 0); // Filter out empty strings from split
-  const presetName = pathParts[0] || 'valentine';
+  const pathParts = window.location.pathname.split('/').filter(p => p.length > 0);
+  const presetNameFromUrl = pathParts[0] || 'valentine';
+
+  let matchedPresetKey = 'valentine'; // Default to 'valentine' key
+  for (const key in presets) {
+    if (key.toLowerCase() === presetNameFromUrl.toLowerCase().replace(/-/g, '')) {
+      matchedPresetKey = key;
+      break;
+    }
+    // Special case for 'valentine' where key is 'valentine' and URL part is 'valentine'
+    if (key.toLowerCase() === presetNameFromUrl.toLowerCase() && key === 'valentine') {
+        matchedPresetKey = key;
+        break;
+    }
+  }
+
+  const presetName = matchedPresetKey;
   const cardId = pathParts[1] || 'default_card';
-  const preset = presets[presetName] || presets['valentine'];
+  const preset = presets[presetName]; // Use the matched key
 
   // POSTHOG
   posthog.identify(cardId);
+
+  const arTargetImage = document.getElementById('ar-target-image');
+  if (arTargetImage && preset.displayImage) {
+    arTargetImage.src = preset.displayImage;
+  }
 
   const mindarThree = new window.MINDAR.IMAGE.MindARThree({
     container: document.body,
