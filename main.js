@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       side: THREE.DoubleSide
     });
     invisiblePlane = new THREE.Mesh(geometry, planeMaterial);
-    invisiblePlane.position.set(0, -0.7, 0.25);
+    const planePos = preset.planePosition || [0, -0.7, 0.25];
+    invisiblePlane.position.set(...planePos);
     anchor.group.add(invisiblePlane);
 
     mixer = new THREE.AnimationMixer(raccoon.scene);
@@ -164,11 +165,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           const currentSize = parseFloat(textSizeInput.value) || 0.5;
           const finalScale = baseScale * currentSize;
           textGroup.scale.set(finalScale, finalScale, finalScale);
-          textGroup.position.set(0, 0, 0);
+          textGroup.position.set(...preset.textPosition);
         } else {
           textGroup.scale.set(0, 0, 0);
         }
         textGroup.updateMatrixWorld(true);
+
         textGroup.traverse((object) => {
           if (object.isMesh) {
             if (Array.isArray(object.material)) {
@@ -362,7 +364,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       loadSavedData();
     });
-  } catch (err) { console.error("Setup error:", err); }
+  } catch (err) { console.error("Setup error:", err); };
 
   const startARButton = document.getElementById('start-ar-button');
   const startAROverlay = document.getElementById('start-ar-overlay');

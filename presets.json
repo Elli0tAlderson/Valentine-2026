@@ -10,6 +10,7 @@
     "modelPosition": [0, -0.2, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.005
   },
   "CherryBlossomCat":{
@@ -23,6 +24,7 @@
     "modelPosition": [0, -0.4, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.02
 
   },
@@ -37,6 +39,7 @@
     "modelPosition": [0, -0.4, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.02
 
   },
@@ -51,6 +54,7 @@
     "modelPosition": [0, -0.2, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.01
 },
   "BloomingFlowers":{
@@ -64,6 +68,7 @@
     "modelPosition": [0, 0, 0],
     "modelRotation": [90, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.015
   },
   "Love_Letter":{
@@ -77,6 +82,7 @@
     "modelPosition": [0, -0.2, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.01
   },
   "Post_Card_Cherry_blossom":{  
@@ -90,6 +96,7 @@
     "modelPosition": [0, -0.2, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.01
   },
   "Post_Card_Red_heart":{
@@ -103,6 +110,7 @@
     "modelPosition": [0, -0.2, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.01
   },
   "Post_Card_V_Stone_heart":{
@@ -116,6 +124,7 @@
     "modelPosition": [0, -0.2, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
+    "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.01
   }
 }
