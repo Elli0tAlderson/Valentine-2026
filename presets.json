@@ -44,7 +44,7 @@
 
   },
   "FlyingHearts":{
-    "model": "./assets/models/purple-heart.glb",
+    "model": "./assets/models/Flying_hearts_Rename.glb",
     "target": "./assets/mind-files/flying-hearts.mind",
     "defaultText": "Love is in the Air!",
     "defaultColor": "#FF4500",
@@ -58,18 +58,19 @@
     "modelScale": 0.01
 },
   "BloomingFlowers":{
-    "model": "./assets/models/Blooming-Flower.glb",
+    "model": "./assets/models/BloomingFlowers_3.glb",
     "target": "./assets/mind-files/BloomingFlowers.mind",
     "defaultText": "You Make My Heart Bloom!",
     "defaultColor": "#FF69B4",
-    "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr",
+    "defaultSize": 2,
+    "envMap": "./assets/hdr/studio_kontrast_04_1k.hdr",
     "displayImage": "/assets/graphics/BloomingFlowers.png",
     "modelPosition": [0, 0, 0],
-    "modelRotation": [90, 0, 0],
-    "textPosition": [0, 0, 0.01],
-    "planePosition": [0, -0.7, 0.25],
-    "modelScale": 0.015
+    "modelRotation": [0, 0, 0],
+    "textPosition": [0, -1, 0.01],
+    "planePosition": [0, -0.2, 0.25],
+    "modelScale": 0.5
+
   },
   "Love_Letter":{
     "model": "./assets/models/air-baloon.glb",
@@ -93,38 +94,38 @@
     "defaultSize": 0.2,
     "envMap": "./assets/hdr/cape_hill_1k.hdr",
     "displayImage": "/assets/graphics/Post-cherry.png",
-    "modelPosition": [0, -0.2, 0],
+    "modelPosition": [0, 0, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
     "planePosition": [0, -0.7, 0.25],
     "modelScale": 0.01
   },
   "Post_Card_Red_heart":{
-    "model": "./assets/models/sassy-cat.glb",
+    "model": "./assets/models/newRedHeart.glb",
     "target": "./assets/mind-files/Post_Card_Red_heart.mind",
     "defaultText": "You Have My Heart!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr",
+    "envMap": "./assets/hdr/venice_sunset_1k.hdr",
     "displayImage": "/assets/graphics/Post-Red-heart.png",
-    "modelPosition": [0, -0.2, 0],
+    "modelPosition": [0, 0, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
-    "planePosition": [0, -0.7, 0.25],
-    "modelScale": 0.01
+    "planePosition": [0, 0.3, 0.25],
+    "modelScale": 0.05
   },
   "Post_Card_V_Stone_heart":{
-    "model": "./assets/models/sassy-cat.glb",
+    "model": "./assets/models/C_Red.glb",
     "target": "./assets/mind-files/Post_Card_V_Stone_heart.mind",
     "defaultText": "You Are My Rock!",
     "defaultColor": "#FF69B4",
-    "defaultSize": 0.2,
-    "envMap": "./assets/hdr/cape_hill_1k.hdr",
+    "defaultSize": 0.89,
+    "envMap": "./assets/hdr/studio_kontrast_04_1k.hdr",
     "displayImage": "/assets/graphics/Post-Stone-heart.png",
-    "modelPosition": [0, -0.2, 0],
+    "modelPosition": [0, 0, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
     "planePosition": [0, -0.7, 0.25],
-    "modelScale": 0.01
+    "modelScale": 0.03
   }
 }
