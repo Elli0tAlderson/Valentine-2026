@@ -2,7 +2,7 @@
   "valentine": {
     "model": "./assets/models/air-baloon.glb",
     "target": "./assets/mind-files/air-baloon.mind",
-    "audio": "/assets/music/Music 1.MP3",
+    "audio": "/assets/music/AirBalloon_BGMusic.MP3",
     "defaultText": "My Heart is Yours",
     "defaultColor": "#FF0090",
     "defaultSize": 0.5,
@@ -80,7 +80,7 @@
   "Love_Letter":{
     "model": "./assets/models/Air_Balloons_v2_REVISED.glb",
     "target": "./assets/mind-files/Love_Letter-airballoon.mind",
-    "audio": "/assets/music/Music 1.MP3",
+    "audio": "/assets/music/AirBalloon_BGMusic.MP3",
     "defaultText": "You Are My Valentine!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.5,
