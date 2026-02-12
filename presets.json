@@ -17,7 +17,7 @@
   "CherryBlossomCat":{
     "model": "./assets/models/cherry.glb",
     "target": "./assets/mind-files/cherry-blossom.mind",
-    "audio": "/assets/music/Music 1.MP3",
+    "audio": "/assets/music/SassyCat_CherryBlossom_BGMusic.MP3",
     "defaultText": "You are Purr-fect!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.5,
@@ -25,15 +25,15 @@
     "displayImage": "/assets/graphics/Cherry-Blossoms.png",
     "modelPosition": [0, -0.4, 0],
     "modelRotation": [0, 0, 0],
-    "textPosition": [0, 0, 0.01],
-    "planePosition": [0, -0.5, 0.5],
+    "textPosition": [0, 0, 0],
+    "planePosition": [0.05, -0.55, 0.5],
     "modelScale": 0.02
 
   },
   "SassyCat":{
     "model": "./assets/models/sassy-cat.glb",
     "target": "./assets/mind-files/normal-sassy-cat.mind",
-    "audio": "/assets/music/Music 1.MP3",
+    "audio": "/assets/music/SassyCat_Autum_BGMuisc.MP3",
     "defaultText": "Stay Sassy!",
     "defaultColor": "#FF1493",
     "defaultSize": 0.5,
@@ -42,7 +42,7 @@
     "modelPosition": [0, -0.4, 0],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0.01],
-    "planePosition": [0, -0.5, 0.5],
+    "planePosition": [0.05, -0.55, 0.5],
     "modelScale": 0.02
 
   },
@@ -58,7 +58,7 @@
     "modelPosition": [0, -0.2, 0.05],
     "modelRotation": [0, 0, 0],
     "textPosition": [0, 0, 0],
-    "planePosition": [0, 0.6, 0.25],
+    "planePosition": [0, 0.5, 0.25],
     "modelScale": 0.01
 },
   "BloomingFlowers":{
@@ -110,7 +110,7 @@
   "Post_Card_Red_heart":{
     "model": "./assets/models/newRedHeart.glb",
     "target": "./assets/mind-files/Post_Card_Red_heart.mind",
-    "audio": "/assets/music/Red_Heart_BGMusic_Cut.MP3",
+    "audio": "/assets/music/Red_Heart_Without_Stone.MP3",
     "defaultText": "You Have My Heart!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.5,
@@ -125,7 +125,7 @@
   "Post_Card_V_Stone_heart":{
     "model": "./assets/models/C_Red.glb",
     "target": "./assets/mind-files/Post_Card_V_Stone_heart.mind",
-    "audio": "/assets/music/Red_Stone_Heart_BGMusic_Cut.MP3",
+    "audio": "/assets/music/Red_Stone_Heart_BGMusic.MP3",
     "defaultText": "You Are My Rock!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.89,
