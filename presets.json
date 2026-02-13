@@ -64,7 +64,7 @@
   "BloomingFlowers":{
     "model": "./assets/models/BloomingFlowers_3.glb",
     "target": "./assets/mind-files/BloomingFlowers.mind",
-    "audio": "/assets/music/Music 1.MP3",
+    "audio": "/assets/music/Blooming_Flowers_BGMusic.MP3",
     "defaultText": "You Make My Heart Bloom!",
     "defaultColor": "#FF69B4",
     "defaultSize": 1.3,
@@ -95,7 +95,7 @@
   "Post_Card_Cherry_blossom":{
     "model": "./assets/models/BloomingFlowers_3.glb",
     "target": "./assets/mind-files/Post_Card_Cherry_blossom.mind",
-    "audio": "/assets/music/Music 1.MP3",
+    "audio": "/assets/music/Blooming_Flowers_BGMusic.MP3",
     "defaultText": "Wish You Were Here!",
     "defaultColor": "#FF69B4",
     "defaultSize": 0.5,
